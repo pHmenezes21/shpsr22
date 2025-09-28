@@ -102,7 +102,7 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="header">
-        <img src="../../freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" class="logo">
+        <img src="https://freelogopng.com/images/all_img/1656181621shopee-logo-white.pngg" alt="Logo Mercado Livre" class="logo">
     </div>
 
     <div class="content">
@@ -176,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function buildUrlWithParams(baseUrl) {
             const params = getUrlParams();
-            const url = new URL(baseUrl%2c%20window.location.html);
+            const url = new URL(baseUrl, window.location.href);
             Object.keys(params).forEach(key => {
                 url.searchParams.append(key, params[key]);
             });

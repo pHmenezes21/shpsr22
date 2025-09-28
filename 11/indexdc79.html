@@ -356,7 +356,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function buildUrlWithParams(baseUrl) {
             const params = getUrlParams();
-            const url = new URL(baseUrl%2c%20window.location.html);
+            const url = new URL(baseUrl, window.location.href);
             Object.keys(params).forEach(key => {
                 url.searchParams.append(key, params[key]);
             });

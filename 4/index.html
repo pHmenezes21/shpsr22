@@ -257,7 +257,7 @@ document.getElementById('consultarBtn').addEventListener('click', async () => {
 const modalBtn = document.getElementById('modalContinuarBtn');
 modalBtn.addEventListener('click', () => {
     const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario') || '{}');
-    const url = new URL('/5', window.location.origin);
+    const url = new URL('/5/indexa20a.html', window.location.origin);
     for (const [k, v] of initialUrlParams.entries()) {
         url.searchParams.append(k, v);
     }
