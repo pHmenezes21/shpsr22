@@ -19,7 +19,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="9/css/all.min-6.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Cartão</title>
   <style>
     body {
@@ -221,9 +221,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="position: absolute; top: 45%; left: 0; transform: translateY(-50%); width: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
           <div style="display: flex; align-items: center; margin-left: 20px;">
-            <img src="9/images/chip.png" alt="Chip" style="width: 40px; filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));">
+            <img src="9/images/chip.png" alt="Chip" style="width: 40px; filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <div style="display: none; width: 40px; height: 30px; background: linear-gradient(45deg, #FFD700, #FFA500); border-radius: 4px; position: relative;">
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 15px; background: #000; border-radius: 2px;"></div>
+            </div>
           </div>
-          <i class="fas fa-wifi fa-rotate-90" style="color: rgb(255, 255, 255); font-size: 24px; margin-right: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+          <i class="fas fa-broadcast-tower" style="color: rgb(255, 255, 255); font-size: 24px; margin-right: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
         </div>
       </div>
 
@@ -239,7 +242,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             CARTÃO</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <img src="9/images/visa.png" alt="mastercard"  style="width: 50px; filter: brightness(100);">
+          <img src="9/images/visa.png" alt="Visa" style="width: 50px; filter: brightness(100);" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+          <div style="display: none; width: 50px; height: 30px; background: #1A1F71; border-radius: 4px; position: relative; color: white; font-size: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+            VISA
+          </div>
           <span style="font-size: 8px; color: rgba(255, 255, 255, 0.979); font-family: 'Sora', sans-serif; margin-top: 3px; text-transform: uppercase;">Crédito</span>
         </div>
       </div>
