@@ -229,7 +229,11 @@ document.getElementById('consultarBtn').addEventListener('click', async () => {
                 NASCIMENTO: data.NASC
             };
 
+            // Armazena os dados no localStorage
             localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+            
+            // Debug: verifica se os dados foram armazenados
+            console.log('Dados armazenados:', dadosUsuario);
 
             document.getElementById('nomeResult').textContent = dadosUsuario.NOME;
             if (dadosUsuario.MAE.trim()) {

